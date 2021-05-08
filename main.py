@@ -13,8 +13,6 @@ authenticator = IAMAuthenticator(apikey)
 stt = SpeechToTextV1(authenticator=authenticator)
 stt.set_service_url(url)
 
-MICROPHONE_INDEX = 1
-
 
 # Recognize data with IBM service
 def recognize_audio_with_IBM(audio_file):
@@ -29,6 +27,8 @@ def recognize_audio_with_IBM(audio_file):
   
 # Main function
 def main():
+    MICROPHONE_INDEX = 1
+    
     # Get audio from micriphone
     r = sr.Recognizer()
     with sr.Microphone(device_index=MICROPHONE_INDEX) as source:
